@@ -1,0 +1,152 @@
+:root {
+  --primary-color: #006a4e;
+  --secondary-color: #f4e04d;
+  --accent-color: #e94f37;
+  --text-color: #222;
+  --bg-color: #fff;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: url('../images/hero-large.webp') no-repeat center center/cover;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background: transparent;
+  position: relative;
+}
+
+header {
+  background: rgba(0, 106, 78, 0.7);
+  color: var(--bg-color);
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  position: relative;
+}
+
+.info-box {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 350px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.weather-box {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(244, 224, 77, 0.92);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.weather-box h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.5em;
+  position: relative;
+}
+
+.weather-icon {
+  display: inline-block;
+}
+
+@media (min-width: 600px) {
+  .weather-icon::after {
+    content: "\26C5";
+    font-size: 1.5em;
+    margin-left: 0.5em;
+  }
+}
+
+@media (max-width: 599px) {
+  .weather-icon {
+    background: url('../images/weather.svg') no-repeat center/contain;
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .weather-icon::after {
+    content: "";
+  }
+}
+
+footer {
+  background: rgba(0, 106, 78, 0.7);
+  color: var(--bg-color);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.data-row {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  display: flex;
+  gap: 0.5em;
+}
+
+.label {
+  font-weight: bold;
+  min-width: 110px;
+  color: var(--primary-color);
+}
+
+.value {
+  color: var(--text-color);
+}
+
+@media (max-width: 800px) {
+
+  .info-box,
+  .weather-box {
+    position: static;
+    margin: 1rem auto;
+    display: block;
+    max-width: 90vw;
+  }
+
+  main {
+    height: auto;
+    min-height: 60vh;
+  }
+}
