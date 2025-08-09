@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Review Submitted • Product Review</title>
+  <meta name="description"
+    content="Confirmation page for submitted product review; shows details and your review submission count." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+      --accent-2: #14b8a6;
+      --border: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.5;
+      background: radial-gradient(1200px 800px at 10% 10%, #0b1220 20%, var(--bg) 60%), radial-gradient(1200px 800px at 90% 0%, #0b1220 20%, var(--bg) 60%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+      margin: 0 0 6px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .kv {
+      display: grid;
+      gap: 10px;
+    }
+
+    @media (min-width: 680px) {
+      .kv {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .item {
+      background: #0b1020;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .value {
+      font-weight: 600;
+      margin-top: 2px;
+      word-break: break-word;
+    }
+
+    .counter {
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0b1020;
+    }
+
+    .counter strong {
+      color: var(--accent);
+    }
+
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+    }
+
+    footer {
+      margin-top: 24px;
+      padding: 16px 0 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    a {
+      color: #7dd3fc;
+    }
+
+    ul {
+      margin: 6px 0 0 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Thank you! Your review was submitted.</h1>
+      <p id="intro" class="muted">Below are the details you submitted.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="review-details-heading">
+      <h2 id="review-details-heading" class="sr-only">Submitted review details</h2>
+      <div class="kv">
+        <div class="item">
+          <div class="label">Product</div>
+          <div id="out-product" class="value">—</div>
+        </div>
+        <div class="item">
+          <div class="label">Overall Rating</div>
+          <div id="out-rating" class="value">—</div>
+        </div>
+        <div class="item">
+          <div class="label">Date of Installation</div>
+          <div id="out-date" class="value">—</div>
+        </div>
+        <div class="item">
+          <div class="label">Your Name</div>
+          <div id="out-name" class="value">—</div>
+        </div>
+        <div class="item" style="grid-column: 1 / -1;">
+          <div class="label">Useful Features</div>
+          <div id="out-features" class="value">—</div>
+        </div>
+        <div class="item" style="grid-column: 1 / -1;">
+          <div class="label">Written Review</div>
+          <div id="out-review" class="value">—</div>
+        </div>
+      </div>
+
+      <div class="counter" aria-live="polite">
+        Reviews you have submitted on this device: <strong id="reviewCount">0</strong>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="form.html">Submit another review</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>WDD 131 • Product Review Confirmation • <a href="https://www.byui.edu/" target="_blank"
+          rel="noopener">BYU-Idaho</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Same product source used to map id -> display name
+    const products = [
+      { id: "ba-coffee-grinder", name: "Barista Ace Coffee Grinder" },
+      { id: "neo-kettle", name: "Neotherm Smart Kettle" },
+      { id: "aurora-lamp", name: "Aurora Desk Lamp" },
+      { id: "sonic-toothbrush", name: "Sonic Toothbrush S2" },
+      { id: "air-purifier", name: "BreatheWell Air Purifier" },
+    ];
+
+    function getQuery() {
+      const params = new URLSearchParams(window.location.search);
+      // Gather potentially multiple features
+      const features = [];
+      for (const [key, value] of params.entries()) {
+        if (key === "features") features.push(value);
+      }
+      return {
+        productId: params.get("productName"),
+        rating: params.get("rating"),
+        installDate: params.get("installDate"),
+        name: params.get("userName"),
+        review: params.get("review"),
+        features,
+      };
+    }
+
+    function mapProductName(id) {
+      const found = products.find(p => p.id === id);
+      return found ? found.name : id || "—";
+    }
+
+    function renderStars(n) {
+      const num = Number(n);
+      if (!num || num < 1 || num > 5) return "—";
+      return "★★★★★☆☆☆☆☆".slice(5 - num, 10 - num); // simple star display
+    }
+
+    function formatDate(iso) {
+      if (!iso) return "—";
+      const d = new Date(iso + "T00:00:00");
+      if (isNaN(d)) return iso;
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function updateCounter() {
+      const key = "reviewCount";
+      const current = Number(localStorage.getItem(key) || "0");
+      const next = current + 1;
+      localStorage.setItem(key, String(next));
+      const el = document.getElementById("reviewCount");
+      if (el) el.textContent = String(next);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const data = getQuery();
+      document.getElementById("out-product").textContent = mapProductName(data.productId);
+      document.getElementById("out-rating").textContent = `${data.rating || "—"} (${renderStars(data.rating)})`;
+      document.getElementById("out-date").textContent = formatDate(data.installDate);
+      document.getElementById("out-name").textContent = data.name || "—";
+
+      const featOut = document.getElementById("out-features");
+      if (data.features && data.features.length) {
+        const map = {
+          durability: "Durability",
+          ease_of_use: "Ease of Use",
+          performance: "Performance",
+          design: "Design",
+          value_for_money: "Value for Money",
+        };
+        const pretty = data.features.map(f => map[f] || f);
+        featOut.innerHTML = `<ul>${pretty.map(f => `<li>${f}</li>`).join("")}</ul>`;
+      } else {
+        featOut.textContent = "—";
+      }
+
+      const reviewText = (data.review || "").trim();
+      document.getElementById("out-review").textContent = reviewText || "—";
+
+      updateCounter();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Review Form</title>
+  <meta name="description"
+    content="Submit a product review including rating, install date, useful features, and optional comments." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+      --accent-2: #14b8a6;
+      --error: #ef4444;
+      --border: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.5;
+      background: radial-gradient(1200px 800px at 10% 10%, #0b1220 20%, var(--bg) 60%), radial-gradient(1200px 800px at 90% 0%, #0b1220 20%, var(--bg) 60%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      margin: 0 0 4px;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    form {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 720px) {
+      .grid.two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    select,
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: #0b1020;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+    }
+
+    select:focus,
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+    }
+
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    legend {
+      padding: 0 6px;
+      color: var(--muted);
+    }
+
+    .options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .inline-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Star rating (simple, accessible) */
+    .stars {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .stars input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .stars label {
+      cursor: pointer;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #0b1020;
+      user-select: none;
+    }
+
+    .stars input:focus+label {
+      outline: 2px solid transparent;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+    }
+
+    .stars input:checked+label {
+      background: #0f172a;
+      border-color: var(--accent);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+    }
+
+    footer {
+      margin-top: 24px;
+      padding: 16px 0 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    a {
+      color: #7dd3fc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Product Review</h1>
+      <p>Complete the form below to submit a review. All fields marked required must be filled.</p>
+    </header>
+
+    <form id="reviewForm" method="get" action="review.html">
+      <div class="grid">
+        <div class="field">
+          <label for="productName">Product Name <span class="hint">(required)</span></label>
+          <select id="productName" name="productName" required>
+            <option value="" disabled selected>Select a Product ...</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Overall Rating <span class="hint">(1 to 5, required)</span></legend>
+          <div class="stars" role="radiogroup" aria-labelledby="ratingLabel">
+            <span id="ratingLabel" class="sr-only">Overall rating from 1 to 5</span>
+
+            <input type="radio" id="rating-1" name="rating" value="1" required />
+            <label for="rating-1" aria-label="1 star">★☆☆☆☆</label>
+
+            <input type="radio" id="rating-2" name="rating" value="2" required />
+            <label for="rating-2" aria-label="2 stars">★★☆☆☆</label>
+
+            <input type="radio" id="rating-3" name="rating" value="3" required />
+            <label for="rating-3" aria-label="3 stars">★★★☆☆</label>
+
+            <input type="radio" id="rating-4" name="rating" value="4" required />
+            <label for="rating-4" aria-label="4 stars">★★★★☆</label>
+
+            <input type="radio" id="rating-5" name="rating" value="5" required />
+            <label for="rating-5" aria-label="5 stars">★★★★★</label>
+          </div>
+        </fieldset>
+
+        <div class="grid two-col">
+          <div class="field">
+            <label for="installDate">Date of Installation <span class="hint">(required)</span></label>
+            <input type="date" id="installDate" name="installDate" required />
+          </div>
+          <div class="field">
+            <label for="userName">Your Name <span class="hint">(optional)</span></label>
+            <input type="text" id="userName" name="userName" placeholder="Jane Doe" />
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Useful Features <span class="hint">(check all that apply)</span></legend>
+          <div class="options inline-options">
+            <div>
+              <input type="checkbox" id="feat-durability" name="features" value="durability" />
+              <label for="feat-durability">Durability</label>
+            </div>
+            <div>
+              <input type="checkbox" id="feat-ease" name="features" value="ease_of_use" />
+              <label for="feat-ease">Ease of Use</label>
+            </div>
+            <div>
+              <input type="checkbox" id="feat-performance" name="features" value="performance" />
+              <label for="feat-performance">Performance</label>
+            </div>
+            <div>
+              <input type="checkbox" id="feat-design" name="features" value="design" />
+              <label for="feat-design">Design</label>
+            </div>
+            <div>
+              <input type="checkbox" id="feat-value" name="features" value="value_for_money" />
+              <label for="feat-value">Value for Money</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="review">Written Review <span class="hint">(optional)</span></label>
+          <textarea id="review" name="review" rows="6" placeholder="Share your experience..."></textarea>
+        </div>
+
+        <div class="actions">
+          <input class="btn" type="submit" value="Submit Review" />
+          <span class="hint">Form submits with GET to review.html</span>
+        </div>
+      </div>
+    </form>
+
+    <footer>
+      <p>WDD 131 • Product Review Form • <a href="https://www.byui.edu/" target="_blank" rel="noopener">BYU-Idaho</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const products = [
+      { id: "ba-coffee-grinder", name: "Barista Ace Coffee Grinder" },
+      { id: "neo-kettle", name: "Neotherm Smart Kettle" },
+      { id: "aurora-lamp", name: "Aurora Desk Lamp" },
+      { id: "sonic-toothbrush", name: "Sonic Toothbrush S2" },
+      { id: "air-purifier", name: "BreatheWell Air Purifier" },
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const select = document.getElementById("productName");
+      if (select) {
+        products.forEach((p) => {
+          const opt = document.createElement("option");
+          opt.value = p.id; // store id as value
+          opt.textContent = p.name; // show name to user
+          select.appendChild(opt);
+        });
+      }
+
+      document.getElementById("reviewForm").addEventListener("submit", (e) => {
+        if (!e.target.checkValidity()) {
+          const firstInvalid = e.target.querySelector(":invalid");
+          if (firstInvalid && typeof firstInvalid.focus === "function") firstInvalid.focus();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
