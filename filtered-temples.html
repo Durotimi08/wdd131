@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtered Temples - WDD 131</title>
+  <meta name="description" content="Temple Album showcasing beautiful temple images with filters">
+  <meta name="author" content="Ibrahim Oluwadurotimi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/filtered-temples.css">
+  <link rel="stylesheet" href="styles/filtered-temples-large.css">
+  <script src="scripts/filtered-temples.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <span id="course-title">Temple Album</span>
+    <nav class="navbar">
+      <div class="nav-container">
+        <button class="hamburger-btn" id="hamburger">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Old</a></li>
+          <li><a href="#">New</a></li>
+          <li><a href="#">Large</a></li>
+          <li><a href="#">Small</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Temple Gallery</h1>
+
+    <div class="temple-grid" id="temple-grid">
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy;<span id="currentyear"></span> Ibrahim Oluwadurotimi - Nigeria</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+
+</html>

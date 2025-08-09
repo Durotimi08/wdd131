@@ -1,0 +1,89 @@
+@media (min-width: 1024px) {
+
+  header {
+    padding: 2rem 1rem;
+  }
+
+  #course-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  nav {
+    max-width: 800px;
+  }
+
+  .nav-menu a {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  main {
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .temple-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  figure {
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  figure:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  figure img {
+    height: 350px;
+    transition: transform 0.3s ease;
+  }
+
+  figure:hover img {
+    transform: scale(1.05);
+  }
+
+  figcaption {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  footer {
+    padding: 3rem 1rem;
+    margin-top: 4rem;
+  }
+
+  footer p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .temple-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    gap: 3rem;
+  }
+
+  figure img {
+    height: 400px;
+  }
+
+  main {
+    max-width: 1600px;
+  }
+}
