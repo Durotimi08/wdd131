@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site Plan – Beginner’s Guide to Home Gardening</title>
+  <meta name="description" content="Site plan for a 3–4 page website: Beginner’s Guide to Home Gardening" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/siteplan.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <svg class="logo-icon" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"
+        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="var(--color-primary)" />
+            <stop offset="100%" stop-color="var(--color-accent)" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#leafGrad)"
+          d="M56 8C36 8 16 20 8 40c8-6 18-8 28-6-4 4-9 7-14 9 10 1 20-1 28-8 7-8 8-17 6-27Z" />
+        <circle cx="18" cy="44" r="3" fill="var(--color-accent)" />
+      </svg>
+      <div>
+        <h1 class="site-title">Grow at Home</h1>
+        <p class="tagline">Beginner’s Guide to Home Gardening</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="site-name" class="card">
+      <h2>Site Name</h2>
+      <p><strong>Name:</strong> Grow at Home</p>
+      <p><strong>Why this name?</strong> It clearly communicates the focus on starting and caring for a small home
+        garden, using friendly, encouraging language for beginners.</p>
+      <p><strong>Optional domain:</strong> growathome.garden (or grow-at-home.org)</p>
+    </section>
+
+    <section id="purpose" class="card">
+      <h2>Site Purpose</h2>
+      <p>The site will help beginners successfully start and maintain a small home garden by providing simple,
+        trustworthy guidance on tools, soil preparation, plant selection, and ongoing care. It will also curate
+        reputable resources and references for further learning.</p>
+    </section>
+
+    <section id="scenarios" class="card">
+      <h2>Scenarios</h2>
+      <ul>
+        <li>Which beginner-friendly plants can I start with in containers or a small backyard plot?</li>
+        <li>How often should I water my plants, and how do I avoid overwatering?</li>
+        <li>What basic tools and soil preparation steps do I need before planting?</li>
+      </ul>
+    </section>
+
+    <section id="colors" class="card">
+      <h2>Color Schema</h2>
+      <p>This document uses the selected colors via CSS variables.</p>
+      <div class="swatches">
+        <div class="swatch" style="--swatch: var(--color-primary)">
+          <span class="swatch-name">Primary – Garden Green</span>
+          <span class="swatch-hex">#2E7D32</span>
+          <span class="swatch-usage">Headings, accents</span>
+        </div>
+        <div class="swatch" style="--swatch: var(--color-accent)">
+          <span class="swatch-name">Accent – Sunflower</span>
+          <span class="swatch-hex">#F9A825</span>
+          <span class="swatch-usage">Buttons, highlights</span>
+        </div>
+        <div class="swatch" style="--swatch: var(--color-bg)">
+          <span class="swatch-name">Background – Light Garden</span>
+          <span class="swatch-hex">#F4F7F3</span>
+          <span class="swatch-usage">Page background</span>
+        </div>
+        <div class="swatch" style="--swatch: var(--color-text)">
+          <span class="swatch-name">Text – Dark Soil</span>
+          <span class="swatch-hex">#333333</span>
+          <span class="swatch-usage">Body text</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="typography" class="card">
+      <h2>Typography</h2>
+      <ul class="typography-list">
+        <li><strong>Headings:</strong> Playfair Display (serif)</li>
+        <li><strong>Body:</strong> Inter (sans-serif)</li>
+      </ul>
+      <div class="type-samples">
+        <p class="sample-heading">Sample Heading – Playfair Display</p>
+        <p class="sample-body">Sample body text paragraph – Inter. This paragraph demonstrates default body copy
+          styling.</p>
+      </div>
+    </section>
+
+    <section id="wireframe" class="card">
+      <h2>Wireframe</h2>
+      <div class="wireframes">
+        <div class="wireframe">
+          <h3>Mobile (narrow)</h3>
+          <pre class="wf">
++----------------------+
+|      Header          |
++----------------------+
+|    Hero/Intro        |
++----------------------+
+|  Quick Links (cards) |
++----------------------+
+|  Latest Tips/CTA     |
++----------------------+
+|      Footer          |
++----------------------+
+          </pre>
+        </div>
+        <div class="wireframe">
+          <h3>Desktop (wide)</h3>
+          <pre class="wf">
++----------------------------------------------------+
+|                       Header                       |
++----------------------+-----------------------------+
+|      Hero/Intro      |     Quick Links (cards)     |
+|                      |     or Featured Sections    |
++----------------------+-----------------------------+
+|            Latest Tips / CTA (full-width)          |
++----------------------------------------------------+
+|                        Footer                      |
++----------------------------------------------------+
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="pages" class="card">
+      <h2>Planned Pages</h2>
+      <ul>
+        <li><strong>Home Page</strong> – Introduction to home gardening and its benefits.</li>
+        <li><strong>Getting Started</strong> – Tools, soil preparation, and selecting beginner-friendly plants.</li>
+        <li><strong>Plant Care Tips</strong> – Watering schedules, pest prevention, and seasonal planting advice.</li>
+        <li><strong>Resources &amp; References</strong> – Useful links, recommended books, and citations.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Grow at Home • Site plan</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
