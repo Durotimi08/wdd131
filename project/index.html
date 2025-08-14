@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grow at Home – Beginner’s Guide to Home Gardening</title>
+  <meta name="description"
+    content="Beginner’s guide to home gardening: simple steps to start, easy plant care tips, and trusted resources to help you grow at home." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="brand container">
+      <a class="brand-link" href="index.html" aria-label="Grow at Home – Home">
+        <svg class="logo-icon" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"
+          xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--color-primary)" />
+              <stop offset="100%" stop-color="var(--color-accent)" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#leafGrad)"
+            d="M56 8C36 8 16 20 8 40c8-6 18-8 28-6-4 4-9 7-14 9 10 1 20-1 28-8 7-8 8-17 6-27Z" />
+          <circle cx="18" cy="44" r="3" fill="var(--color-accent)" />
+        </svg>
+        <div class="brand-text">
+          <h1 class="site-title">Grow at Home</h1>
+          <p class="tagline">Beginner’s Guide to Home Gardening</p>
+        </div>
+      </a>
+      <button id="theme-toggle" class="btn btn-ghost" type="button" aria-pressed="false">Toggle theme</button>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="tips.html">Plant Care Tips</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Start small. Grow confident.</h2>
+        <p>Learn the essentials to begin a thriving home garden—even with limited space and time.</p>
+        <div class="hero-actions">
+          <a class="btn" href="getting-started.html">Get Started</a>
+          <a class="btn btn-outline" href="#signup">Get a weekly tip</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop"
+          alt="Hands planting a small seedling in rich soil" width="1200" height="800" />
+        <figcaption>Gardening builds patience, joy, and good food.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="quick-links" class="cards">
+      <h2 id="quick-links">Quick links</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Essential tools</h3>
+          <p>The simple toolkit to begin: trowel, pruners, watering can, and gloves.</p>
+          <a class="card-link" href="getting-started.html#tools">View tools</a>
+        </article>
+        <article class="card">
+          <h3>Soil basics</h3>
+          <p>Healthy soil is the secret to healthy plants. Learn to prepare it well.</p>
+          <a class="card-link" href="getting-started.html#soil">Prepare soil</a>
+        </article>
+        <article class="card">
+          <h3>Beginner plants</h3>
+          <p>Start with forgiving plants that grow well in containers or small beds.</p>
+          <a class="card-link" href="getting-started.html#plants">See picks</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="signup" aria-labelledby="signup-heading" class="signup card">
+      <h2 id="signup-heading">Get our weekly garden tip</h2>
+      <p id="greeting" class="greeting" hidden></p>
+      <form id="tip-form" novalidate>
+        <div class="form-row">
+          <label for="name">First name</label>
+          <input id="name" name="name" type="text" inputmode="text" autocomplete="given-name" required minlength="2" />
+          <small class="hint">At least 2 characters.</small>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+          <small class="hint">We’ll send one tip per week. Unsubscribe anytime.</small>
+        </div>
+        <div class="form-row">
+          <label for="experience">Experience level</label>
+          <select id="experience" name="experience" required>
+            <option value="" selected disabled>Choose one…</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Subscribe</button>
+        </div>
+        <p id="form-message" role="status" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="latest card" aria-labelledby="latest-heading">
+      <h2 id="latest-heading">Latest tip</h2>
+      <div id="latest-tip" class="latest-tip"></div>
+      <figure class="side-media">
+        <img src="https://images.unsplash.com/photo-1470058869958-2a77ade41c02?q=80&w=1200&auto=format&fit=crop"
+          alt="Fresh tomatoes ripening on the vine" width="1200" height="800" loading="lazy" />
+        <figcaption>Try cherry tomatoes for quick success.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Grow at Home</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js" defer></script>
+</body>
+
+</html>

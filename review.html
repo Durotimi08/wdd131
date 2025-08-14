@@ -195,7 +195,6 @@
   </div>
 
   <script>
-    // Same product source used to map id -> display name
     const products = [
       { id: "ba-coffee-grinder", name: "Barista Ace Coffee Grinder" },
       { id: "neo-kettle", name: "Neotherm Smart Kettle" },
@@ -206,7 +205,6 @@
 
     function getQuery() {
       const params = new URLSearchParams(window.location.search);
-      // Gather potentially multiple features
       const features = [];
       for (const [key, value] of params.entries()) {
         if (key === "features") features.push(value);

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Getting Started – Grow at Home</title>
+  <meta name="description"
+    content="Getting started with home gardening: essential tools, soil preparation, and beginner-friendly plants." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="brand container">
+      <a class="brand-link" href="index.html" aria-label="Grow at Home – Home">
+        <svg class="logo-icon" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"
+          xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--color-primary)" />
+              <stop offset="100%" stop-color="var(--color-accent)" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#leafGrad)"
+            d="M56 8C36 8 16 20 8 40c8-6 18-8 28-6-4 4-9 7-14 9 10 1 20-1 28-8 7-8 8-17 6-27Z" />
+          <circle cx="18" cy="44" r="3" fill="var(--color-accent)" />
+        </svg>
+        <div class="brand-text">
+          <h1 class="site-title">Grow at Home</h1>
+          <p class="tagline">Beginner’s Guide to Home Gardening</p>
+        </div>
+      </a>
+      <button id="theme-toggle" class="btn btn-ghost" type="button" aria-pressed="false">Toggle theme</button>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="getting-started.html" aria-current="page">Getting Started</a></li>
+          <li><a href="tips.html">Plant Care Tips</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <header class="page-header">
+      <h2>Getting started</h2>
+      <p>Keep it simple: a few tools, good soil, and the right plants for your space.</p>
+    </header>
+
+    <section id="tools" class="card" aria-labelledby="tools-heading">
+      <h3 id="tools-heading">Essential tools</h3>
+      <ul class="checklist">
+        <li><strong>Trowel</strong> – for digging and transplanting</li>
+        <li><strong>Bypass pruners</strong> – for clean cuts on stems</li>
+        <li><strong>Watering can or hose</strong> – gentle flow is best</li>
+        <li><strong>Gloves</strong> – protect hands, improve grip</li>
+      </ul>
+      <figure class="side-media">
+        <img src="https://images.unsplash.com/photo-1590907043980-9f5c6d3f2f74?q=80&w=1200&auto=format&fit=crop"
+          alt="Gardening tools laid out on a wooden bench" width="1200" height="800" loading="lazy" />
+        <figcaption>Start with a minimal toolkit; upgrade as you grow.</figcaption>
+      </figure>
+    </section>
+
+    <section id="soil" class="card" aria-labelledby="soil-heading">
+      <h3 id="soil-heading">Soil basics</h3>
+      <p>Use a quality potting mix for containers and enrich garden beds with compost. Aim for consistent moisture—not
+        soggy, not bone dry.</p>
+      <aside class="tip">Tip: Mulch helps conserve water and suppress weeds.</aside>
+      <figure class="side-media">
+        <img src="https://images.unsplash.com/photo-1528476513691-07e6d918269f?q=80&w=1200&auto=format&fit=crop"
+          alt="Dark, crumbly soil in a gardener’s hands" width="1200" height="800" loading="lazy" />
+        <figcaption>Healthy soil looks and smells alive.</figcaption>
+      </figure>
+    </section>
+
+    <section id="plants" class="card" aria-labelledby="plants-heading">
+      <h3 id="plants-heading">Beginner-friendly plants</h3>
+      <p>Choose plants that match your sunlight and climate. Try these reliable starters:</p>
+      <div class="card-grid">
+        <article class="mini-card">
+          <h4>Cherry tomatoes</h4>
+          <p>Prolific and forgiving; need 6–8 hours of sun.</p>
+        </article>
+        <article class="mini-card">
+          <h4>Lettuce</h4>
+          <p>Quick harvest; partial shade is fine in heat.</p>
+        </article>
+        <article class="mini-card">
+          <h4>Herbs (basil, mint)</h4>
+          <p>Great in containers; harvest often to encourage growth.</p>
+        </article>
+      </div>
+      <figure class="side-media">
+        <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?q=80&w=1200&auto=format&fit=crop"
+          alt="Young basil plants growing in a container" width="1200" height="800" loading="lazy" />
+        <figcaption>Start with herbs for quick wins and flavor.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Grow at Home</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js" defer></script>
+</body>
+
+</html>

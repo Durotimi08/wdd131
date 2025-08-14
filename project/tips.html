@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plant Care Tips – Grow at Home</title>
+  <meta name="description"
+    content="Practical plant care tips for watering, sunlight, and pest prevention. Filter by experience level and topic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="brand container">
+      <a class="brand-link" href="index.html" aria-label="Grow at Home – Home">
+        <svg class="logo-icon" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"
+          xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--color-primary)" />
+              <stop offset="100%" stop-color="var(--color-accent)" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#leafGrad)"
+            d="M56 8C36 8 16 20 8 40c8-6 18-8 28-6-4 4-9 7-14 9 10 1 20-1 28-8 7-8 8-17 6-27Z" />
+          <circle cx="18" cy="44" r="3" fill="var(--color-accent)" />
+        </svg>
+        <div class="brand-text">
+          <h1 class="site-title">Grow at Home</h1>
+          <p class="tagline">Beginner’s Guide to Home Gardening</p>
+        </div>
+      </a>
+      <button id="theme-toggle" class="btn btn-ghost" type="button" aria-pressed="false">Toggle theme</button>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="tips.html" aria-current="page">Plant Care Tips</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <header class="page-header">
+      <h2>Plant care tips</h2>
+      <p>Use the filters to find tips that match your experience and interest.</p>
+    </header>
+
+    <section class="filters card" aria-labelledby="filter-heading">
+      <h3 id="filter-heading">Filters</h3>
+      <form id="filter-form" class="filter-form">
+        <label>
+          <span>Experience</span>
+          <select id="filter-experience" name="experience">
+            <option value="all">All</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+          </select>
+        </label>
+        <label>
+          <span>Topic</span>
+          <select id="filter-topic" name="topic">
+            <option value="all">All</option>
+            <option value="watering">Watering</option>
+            <option value="sunlight">Sunlight</option>
+            <option value="pests">Pests</option>
+          </select>
+        </label>
+        <button class="btn btn-small" type="submit">Apply</button>
+      </form>
+    </section>
+
+    <section class="tips-grid" aria-live="polite" id="tips-grid"></section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Grow at Home</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js" defer></script>
+</body>
+
+</html>
